@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        background: rgb(131,58,180);
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+      }
+      .centered {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: grid;
+        place-items: center;
+        color: white;
+        box-shadow: rgba(50, 50, 93, 0.25) 15px 33px 37px 10px, rgba(0, 0, 0, 0.3) 10px 25px 36px 10px;
+      }
+
+      .header {
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 24px;
+        text-justify: inter-word;
+      }
+
+      h1 {
+        
+        font-family: 'Verdana', sans-serif;
+        font-size: 60px;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: 1;
+        text-align: center;
+      }
+
+      #demo {
+        color: #111;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 22px;
+        line-height: 24px;
+        text-justify: inter-word;
+      }
+
+      .form-div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 500px;
+      }
+
+      .form-control {
+        height: 150px;
+        font-family: 'Inconsolata', monospace;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="centered">
+        <div class="text-center text-white">
+          <title>sentiment analysis app</title>
+        </div>
+        <h1 class="header">SENTIMENT ANALYSIS APP</h1>
+
+        <p class="desc">
+          Type a sentence, click on the submit button and wait for your prediction.
+        </p>
+
+        <form method="POST" onSubmit="return validate();" class="form">
+          <div class="form-div">
+            <!-- <input type="text" name="text" class="form-control mr-2" /> -->
+            <div class="input-group mb-3">
+              <input type="text" name="text" class="form-control" placeholder="Please input your review here..." aria-label="review text" aria-describedby="button-addon2">
+              
+            </div>
+            
+          </div>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-outline-warning" onclick="this.form.submit();">Submit</button>
+            <button type="button" class="btn btn-outline-warning" onclick="document.getElementById('demo').innerHTML = ''">Clear</button>
+          </div>
+        
+        </form>
+        <br />
+        <br />
+
+        <p id="demo">{{ variable }}</p>
+      </div>
+    </div>
+  </body>
+</html>
